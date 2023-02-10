@@ -84,4 +84,7 @@ dependencies {
 
     //Coroutines - Firebase
     implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-play-services:1.4.1'
+
+    // Dependency for Firebase Android 11
+    implementation "io.grpc:grpc-okhttp:1.32.2"
 }
