@@ -7,4 +7,5 @@
     <string name="home__label">Inicio</string>
     <string name="profile__label">Perfil</string>
     <string name="search__label">Buscar</string>
+    <string name="search__search_field_hint">Encontrar productos</string>
 </resources>

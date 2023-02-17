@@ -1,6 +1,6 @@
 package com.esaudev.ecommerceyt.domain.model
 
-import com.esaudev.ecommerceyt.data.local.ProductEntity
+import com.esaudev.ecommerceyt.data.local.entity.ProductEntity
 
 const val INVALID_PRICE = -1
 

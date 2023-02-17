@@ -1,7 +1,7 @@
 package com.esaudev.ecommerceyt.data.repository
 
-import com.esaudev.ecommerceyt.data.local.ProductsDao
-import com.esaudev.ecommerceyt.data.local.mapToProductList
+import com.esaudev.ecommerceyt.data.local.dao.ProductsDao
+import com.esaudev.ecommerceyt.data.local.entity.mapToProductList
 import com.esaudev.ecommerceyt.data.remote.FirestoreConstants.PRODUCTS_COLLECTION
 import com.esaudev.ecommerceyt.domain.model.Product
 import com.esaudev.ecommerceyt.domain.model.mapToProductEntityList
