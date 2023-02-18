@@ -3,7 +3,7 @@
 In this repository will be uploaded the progress of the Youtube series in Spanish: "eCommerce with Firebase & MVVM". 
 Each video will be associated with a certain branch of development, below are listed the current parts of the project.
 
-#### Content Guide:
+### Content Guide:
 * Part 1: [Creating the project and adding dependencies](https://www.youtube.com/watch?v=MZdjf4PBE9g)
 * Part 2: [Configuring the BottomNavView using Jetpack Navigation](https://www.youtube.com/watch?v=5xIaTPkqBGg)
 * Part 3: [How to implement a simple Offline first architecture with Firebase and Room](https://www.youtube.com/watch?v=MXHNKbIYtaA)
