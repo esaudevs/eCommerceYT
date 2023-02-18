@@ -8,7 +8,7 @@ Each video will be associated with a certain branch of development, below are li
 * Part 2: [Configuring the BottomNavView using Jetpack Navigation](https://www.youtube.com/watch?v=5xIaTPkqBGg)
 * Part 3: [How to implement a simple Offline first architecture with Firebase and Room](https://www.youtube.com/watch?v=MXHNKbIYtaA)
 
-#### Architecture
+### Architecture
 For learning purposes and being one of the most used architectures in the Android development world, we will be using the MVVM 
 architecture with use cases. Below is a diagram showing how our project is structured.
 
