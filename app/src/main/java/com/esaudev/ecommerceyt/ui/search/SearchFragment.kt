@@ -10,6 +10,7 @@ import androidx.compose.runtime.key
 import androidx.compose.ui.input.key.KeyEvent
 import androidx.compose.ui.text.input.ImeAction
 import androidx.fragment.app.viewModels
+import androidx.navigation.fragment.findNavController
 import com.esaudev.ecommerceyt.R
 import com.esaudev.ecommerceyt.databinding.FragmentSearchBinding
 import com.esaudev.ecommerceyt.domain.model.RecentSearch
@@ -59,14 +60,18 @@ class SearchFragment : Fragment() {
 
     private fun setClickListeners() {
         recentSearchAdapter.setRecentSearchClickListener {
-            Toast.makeText(requireContext(), it.query, Toast.LENGTH_SHORT).show()
+            val action = SearchFragmentDirections.actionSearchFragmentToSearchResultFragment(nameQuery = it.query)
+            findNavController().navigate(action)
         }
 
         binding.cSearchView.etSearch.setOnEditorActionListener { _, _, _ ->
             hideKeyboard()
+            val nameQuery = binding.cSearchView.etSearch.text.toString()
             viewModel.saveRecentSearch(
-                RecentSearch(query = binding.cSearchView.etSearch.text.toString())
+                RecentSearch(query = nameQuery)
             )
+            val action = SearchFragmentDirections.actionSearchFragmentToSearchResultFragment(nameQuery = nameQuery)
+            findNavController().navigate(action)
             true
         }
     }

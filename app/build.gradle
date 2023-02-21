@@ -75,6 +75,9 @@ dependencies {
     implementation 'com.github.bumptech.glide:glide:4.13.2'
     annotationProcessor 'com.github.bumptech.glide:compiler:4.13.2'
 
+    //Picasso
+    implementation 'com.squareup.picasso:picasso:2.5.2'
+
     // Firestore
     implementation platform('com.google.firebase:firebase-bom:26.7.0')
     implementation 'com.google.firebase:firebase-firestore:17.1.2'

@@ -20,29 +20,16 @@ import javax.inject.Inject
 
 @HiltViewModel
 class SearchViewModel @Inject constructor(
-    private val getAllProductsUseCase: GetAllProductsUseCase,
     private val saveRecentSearchUseCase: SaveRecentSearchUseCase,
     private val getAllRecentSearchsUseCase: GetAllRecentSearchsUseCase
 ): ViewModel() {
-
-    private val _products: MutableLiveData<Resource<List<Product>>> = MutableLiveData()
-    val products: LiveData<Resource<List<Product>>>
-        get() = _products
 
     private val _recentSearch: MutableLiveData<List<RecentSearch>> = MutableLiveData()
     val recentSearch: LiveData<List<RecentSearch>>
         get() = _recentSearch
 
     init {
-        getAllProducts()
         getAllRecentSearch()
-    }
-
-    private fun getAllProducts() {
-        viewModelScope.launch {
-            val productsList = getAllProductsUseCase()
-            _products.postValue(productsList)
-        }
     }
 
     private fun getAllRecentSearch() {

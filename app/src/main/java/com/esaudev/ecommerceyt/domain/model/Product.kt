@@ -1,6 +1,7 @@
 package com.esaudev.ecommerceyt.domain.model
 
 import com.esaudev.ecommerceyt.data.local.entity.ProductEntity
+import com.esaudev.ecommerceyt.domain.ui.ProductUi
 
 const val INVALID_PRICE = -1
 
@@ -20,6 +21,20 @@ fun Product.mapToProductEntity(): ProductEntity {
         price = price,
         image = image
     )
+}
+
+fun Product.mapToProductUi(): ProductUi {
+    return ProductUi(
+        id = id.orEmpty(),
+        name = name,
+        brand = brand,
+        price = price,
+        image = image
+    )
+}
+
+fun List<Product>.mapToProductUiList(): List<ProductUi> {
+    return this.map { it.mapToProductUi() }
 }
 
 fun List<Product>.mapToProductEntityList(): List<ProductEntity> {
