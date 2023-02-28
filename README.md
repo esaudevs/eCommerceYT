@@ -9,6 +9,7 @@ Each video will be associated with a certain branch of development, below are li
 * Ep 3: [How to implement a simple Offline first architecture with Firebase and Room](https://www.youtube.com/watch?v=MXHNKbIYtaA)
 * Ep 4: [How to create a SearchView for recent searches](https://www.youtube.com/watch?v=QgQvxvnSSTM)
 * Ep 5: [Implementing the results view (products)](https://www.youtube.com/watch?v=4-YVClCauzw)
+* Ep 6: [How to manage Loadings and Empty states using XML](https://youtu.be/fvmmFkkwaRA)
 
 ### Architecture
 For learning purposes and being one of the most used architectures in the Android development world, we will be using the MVVM 
