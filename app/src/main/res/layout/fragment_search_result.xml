@@ -18,7 +18,23 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         tools:listitem="@layout/item_product"
+        android:visibility="gone"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        android:layout_below="@id/cSearchResultTopBar"/>
+
+    <include
+        android:id="@+id/lsLoadingScreen"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        layout="@layout/shimmer_search_result"
+        android:layout_below="@id/cSearchResultTopBar"/>
+
+    <include
+        android:id="@+id/lsEmptyScreen"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="gone"
+        layout="@layout/empty_state_search_result"
         android:layout_below="@id/cSearchResultTopBar"/>
 
 </RelativeLayout>

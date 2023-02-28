@@ -8,4 +8,7 @@
     <string name="profile__label">Perfil</string>
     <string name="search__label">Buscar</string>
     <string name="search__search_field_hint">Encontrar productos</string>
+    <string name="empty_state__empty_search_disclaimer">No se encontraron productos, prueba con una busqueda distinta</string>
+    <string name="search_result__error_disclaimer">Hubo un error obteniendo los productos, pruebe de nuevo mas tarde</string>
+    <string name="empty_state__empty_results">0 resultados</string>
 </resources>
