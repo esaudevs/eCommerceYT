@@ -91,15 +91,13 @@ class SearchResultFragment : Fragment() {
             showEmptyScreen(shouldShow = true)
         }
 
-        val productsQtyFormatted = "${products.size} resultados"
-        binding.cSearchResultTopBar.tvResultsQty.text = productsQtyFormatted
+        binding.cSearchResultTopBar.tvResultsQty.text = resources.getQuantityString(R.plurals.search__quantity_results, products.size, products.size)
 
         productAdapter.submitList(products.mapToProductUiList())
     }
 
     private fun showEmptyScreen(message: String? = null, shouldShow: Boolean) {
         binding.lsEmptyScreen.root.visibility = if (shouldShow) View.VISIBLE else View.GONE
-        binding.cSearchResultTopBar.tvResultsQty.text = getString(R.string.empty_state__empty_results)
 
         if (message != null) {
             binding.lsEmptyScreen.tvMessage.text = message

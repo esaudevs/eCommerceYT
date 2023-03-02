@@ -6,6 +6,7 @@ import androidx.compose.ui.text.capitalize
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
+import com.esaudev.ecommerceyt.R
 import com.esaudev.ecommerceyt.databinding.ItemProductBinding
 import com.esaudev.ecommerceyt.domain.ui.ProductUi
 import com.esaudev.ecommerceyt.ui.utils.capitalizeWithLocal
@@ -38,8 +39,8 @@ class ProductListAdapter: ListAdapter<ProductUi, ProductListAdapter.ProductViewH
     override fun onBindViewHolder(holder: ProductViewHolder, position: Int) {
         val product = currentList[position]
 
-        val priceFormatted = "$${product.price}"
-        val brandFormatted = "Marca: ${product.brand.capitalizeWithLocal()}"
+        val priceFormatted = holder.binding.root.context.getString(R.string.product__formatted_price, product.price)
+        val brandFormatted = holder.binding.root.context.getString(R.string.product__formatted_brand, product.brand.capitalizeWithLocal())
 
         holder.binding.tvName.text = product.name
         holder.binding.tvPrice.text = priceFormatted

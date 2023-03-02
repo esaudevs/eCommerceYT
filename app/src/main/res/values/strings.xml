@@ -11,4 +11,12 @@
     <string name="empty_state__empty_search_disclaimer">No se encontraron productos, prueba con una busqueda distinta</string>
     <string name="search_result__error_disclaimer">Hubo un error obteniendo los productos, pruebe de nuevo mas tarde</string>
     <string name="empty_state__empty_results">0 resultados</string>
+
+    <string name="product__formatted_price">$%1$d</string>
+    <string name="product__formatted_brand">Marca: %1$s</string>
+
+    <plurals name="search__quantity_results">
+        <item quantity="one">%d resultado</item>
+        <item quantity="other">%d resultados</item>
+    </plurals>
 </resources>
