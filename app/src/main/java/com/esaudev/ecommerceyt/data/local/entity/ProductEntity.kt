@@ -38,7 +38,8 @@ fun ProductEntity.mapToProduct(): Product {
         name = name,
         brand = brand,
         price = price,
-        image = image
+        image = image,
+        isFavorite = isFavorite
     )
 }
 

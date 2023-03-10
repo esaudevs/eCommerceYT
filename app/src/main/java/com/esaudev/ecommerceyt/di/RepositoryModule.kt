@@ -1,7 +1,9 @@
 package com.esaudev.ecommerceyt.di
 
+import com.esaudev.ecommerceyt.data.repository.FavoriteRepositoryImpl
 import com.esaudev.ecommerceyt.data.repository.ProductRepositoryImpl
 import com.esaudev.ecommerceyt.data.repository.RecentSearchRepositoryImpl
+import com.esaudev.ecommerceyt.domain.repository.FavoriteRepository
 import com.esaudev.ecommerceyt.domain.repository.ProductRepository
 import com.esaudev.ecommerceyt.domain.repository.RecentSearchRepository
 import dagger.Binds
@@ -18,4 +20,7 @@ abstract class RepositoryModule {
 
     @Binds
     abstract fun bindRecentSearchRepository(recentSearchRepository: RecentSearchRepositoryImpl): RecentSearchRepository
+
+    @Binds
+    abstract fun bindFavoriteRepository(recentSearchRepository: FavoriteRepositoryImpl): FavoriteRepository
 }

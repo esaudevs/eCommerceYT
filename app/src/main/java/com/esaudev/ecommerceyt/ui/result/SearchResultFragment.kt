@@ -105,8 +105,18 @@ class SearchResultFragment : Fragment() {
     }
 
     private fun setClickListeners() {
-        productAdapter.setProductClickListener {
-            Toast.makeText(requireContext(), it.name, Toast.LENGTH_SHORT).show()
+        productAdapter.apply {
+            setProductClickListener {
+                Toast.makeText(requireContext(), it.name, Toast.LENGTH_SHORT).show()
+            }
+
+            setFavClickListener {
+                if (it.isFavorite) {
+                    viewModel.deleteFavorite(it.id)
+                } else {
+                    viewModel.saveFavorite(it.id)
+                }
+            }
         }
 
         binding.cSearchResultTopBar.bSearch.setOnClickListener {

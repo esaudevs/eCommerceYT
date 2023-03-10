@@ -10,16 +10,18 @@ data class Product(
     val name: String = "",
     val brand: String = "",
     val price: Int = INVALID_PRICE,
-    val image: String = ""
+    val image: String = "",
+    val isFavorite: Boolean = false
 )
 
-fun Product.mapToProductEntity(): ProductEntity {
+fun Product.mapToProductEntity(favoriteIds: List<String>): ProductEntity {
     return ProductEntity(
         id = id.orEmpty(),
         name = name,
         brand = brand,
         price = price,
-        image = image
+        image = image,
+        isFavorite = favoriteIds.contains(id)
     )
 }
 
@@ -29,7 +31,8 @@ fun Product.mapToProductUi(): ProductUi {
         name = name,
         brand = brand,
         price = price,
-        image = image
+        image = image,
+        isFavorite = isFavorite
     )
 }
 
@@ -37,6 +40,6 @@ fun List<Product>.mapToProductUiList(): List<ProductUi> {
     return this.map { it.mapToProductUi() }
 }
 
-fun List<Product>.mapToProductEntityList(): List<ProductEntity> {
-    return this.map { it.mapToProductEntity() }
+fun List<Product>.mapToProductEntityList(favoriteIds: List<String>): List<ProductEntity> {
+    return this.map { it.mapToProductEntity(favoriteIds) }
 }

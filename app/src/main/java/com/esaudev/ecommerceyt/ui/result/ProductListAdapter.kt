@@ -17,7 +17,7 @@ class ProductListAdapter: ListAdapter<ProductUi, ProductListAdapter.ProductViewH
 
     companion object : DiffUtil.ItemCallback<ProductUi>() {
         override fun areItemsTheSame(oldItem: ProductUi, newItem: ProductUi): Boolean {
-            return oldItem == newItem
+            return oldItem.id == newItem.id
         }
 
         override fun areContentsTheSame(oldItem: ProductUi, newItem: ProductUi): Boolean {
@@ -48,16 +48,29 @@ class ProductListAdapter: ListAdapter<ProductUi, ProductListAdapter.ProductViewH
 
         holder.binding.ivImage.load(product.image)
 
+        holder.binding.bFav.setImageResource(if (product.isFavorite) R.drawable.ic_fav else R.drawable.ic_fav_border)
+
         holder.binding.clProductParent.setOnClickListener {
             onProductClickListener?.let { click ->
+                click(product)
+            }
+        }
+
+        holder.binding.bFav.setOnClickListener {
+            onFavClickListener?.let { click ->
                 click(product)
             }
         }
     }
 
     protected var onProductClickListener : ((ProductUi) -> Unit)? = null
+    protected var onFavClickListener : ((ProductUi) -> Unit)? = null
 
     fun setProductClickListener(listener: (ProductUi) -> Unit){
         onProductClickListener = listener
+    }
+
+    fun setFavClickListener(listener: (ProductUi) -> Unit){
+        onFavClickListener = listener
     }
 }

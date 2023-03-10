@@ -33,8 +33,11 @@ class ProductRepositoryImpl @Inject constructor(
         return productsDao.getAllProducts().mapToProductList()
     }
 
-    override suspend fun insertAllProductsCache(products: List<Product>) {
-        productsDao.insertAllProducts(products.mapToProductEntityList())
+    override suspend fun insertAllProductsCache(
+        products: List<Product>,
+        favoriteIds: List<String>
+    ) {
+        productsDao.insertAllProducts(products.mapToProductEntityList(favoriteIds))
     }
 
 }
