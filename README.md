@@ -10,6 +10,7 @@ Each video will be associated with a certain branch of development, below are li
 * Ep 4: [How to create a SearchView for recent searches](https://www.youtube.com/watch?v=QgQvxvnSSTM)
 * Ep 5: [Implementing the results view (products)](https://www.youtube.com/watch?v=4-YVClCauzw)
 * Ep 6: [How to manage Loadings and Empty states using XML](https://youtu.be/fvmmFkkwaRA)
+* Ep 7: [How to use plurals and strings with parameters](https://www.youtube.com/watch?v=WgJ-u3pu1Mw)
 
 ### Architecture
 For learning purposes and being one of the most used architectures in the Android development world, we will be using the MVVM 
