@@ -11,8 +11,6 @@ import androidx.navigation.fragment.navArgs
 import com.esaudev.ecommerceyt.R
 import com.esaudev.ecommerceyt.databinding.FragmentSearchResultBinding
 import com.esaudev.ecommerceyt.domain.model.Product
-import com.esaudev.ecommerceyt.domain.model.mapToProductUiList
-import com.esaudev.ecommerceyt.utils.Resource
 import com.esaudev.ecommerceyt.utils.UiState
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -93,7 +91,7 @@ class SearchResultFragment : Fragment() {
 
         binding.cSearchResultTopBar.tvResultsQty.text = resources.getQuantityString(R.plurals.search__quantity_results, products.size, products.size)
 
-        productAdapter.submitList(products.mapToProductUiList())
+        productAdapter.submitList(products)
     }
 
     private fun showEmptyScreen(message: String? = null, shouldShow: Boolean) {
@@ -105,8 +103,19 @@ class SearchResultFragment : Fragment() {
     }
 
     private fun setClickListeners() {
-        productAdapter.setProductClickListener {
-            Toast.makeText(requireContext(), it.name, Toast.LENGTH_SHORT).show()
+
+        productAdapter.apply {
+            setProductClickListener {
+                Toast.makeText(requireContext(), it.name, Toast.LENGTH_SHORT).show()
+            }
+
+            setFavoriteClickListener {
+                if (it.isFavorite) {
+                    viewModel.deleteFavorite(it.id)
+                } else {
+                    viewModel.saveFavorite(it.id)
+                }
+            }
         }
 
         binding.cSearchResultTopBar.bSearch.setOnClickListener {

@@ -9,5 +9,5 @@ interface ProductRepository {
 
     suspend fun getAllProductsCache(): List<Product>
 
-    suspend fun insertAllProductsCache(products: List<Product>)
+    suspend fun insertAllProductsCache(products: List<Product>, favorites: List<String>)
 }
