@@ -25,4 +25,4 @@ Material, Jetpack Navigation, among others.
 
 ### Recursos
 
-Here is the [link](https://drive.google.com/file/d/1iLUx12f_psqYMMEahEkDkb4g_YAGN5lO/view?usp=share_link) with the images used for this project. 
+Here is the [link](https://drive.google.com/file/d/1iLUx12f_psqYMMEahEkDkb4g_YAGN5lO/view?usp=share_link) with the images used in this project. 
