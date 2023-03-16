@@ -10,7 +10,6 @@ import com.esaudev.ecommerceyt.databinding.ItemProductBinding
 import com.esaudev.ecommerceyt.domain.model.Product
 import com.esaudev.ecommerceyt.ui.utils.capitalizeWithLocal
 import com.esaudev.ecommerceyt.ui.utils.load
-import java.util.*
 
 class ProductListAdapter: ListAdapter<Product, ProductListAdapter.ProductViewHolder>(Companion) {
 

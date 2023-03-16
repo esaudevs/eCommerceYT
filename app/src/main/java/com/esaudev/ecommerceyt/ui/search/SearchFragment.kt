@@ -1,21 +1,15 @@
 package com.esaudev.ecommerceyt.ui.search
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
-import androidx.compose.runtime.key
-import androidx.compose.ui.input.key.KeyEvent
-import androidx.compose.ui.text.input.ImeAction
+import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
-import com.esaudev.ecommerceyt.R
 import com.esaudev.ecommerceyt.databinding.FragmentSearchBinding
 import com.esaudev.ecommerceyt.domain.model.RecentSearch
 import com.esaudev.ecommerceyt.ui.utils.hideKeyboard
-import com.esaudev.ecommerceyt.utils.Resource
 import dagger.hilt.android.AndroidEntryPoint
 
 

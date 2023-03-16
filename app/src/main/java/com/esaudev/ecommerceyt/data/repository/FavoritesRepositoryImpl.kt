@@ -4,6 +4,8 @@ import com.esaudev.ecommerceyt.data.local.dao.FavoritesDao
 import com.esaudev.ecommerceyt.data.local.entity.FavoriteEntity
 import com.esaudev.ecommerceyt.domain.repository.FavoritesRepository
 import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.withContext
 import javax.inject.Inject
 
@@ -17,8 +19,10 @@ class FavoritesRepositoryImpl @Inject constructor(
         }
     }
 
-    override suspend fun getFavoriteIds(): List<String> {
-        return favoritesDao.getFavorites().map { it.id }
+    override fun getFavoriteIds(): Flow<List<String>> {
+        return favoritesDao.getFavorites().map { favoriteEntities ->
+            favoriteEntities.map { it.id }
+        }
     }
 
     override suspend fun deleteFavorite(id: String) {
