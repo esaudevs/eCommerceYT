@@ -7,12 +7,18 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.viewModels
+import androidx.lifecycle.Lifecycle
+import androidx.lifecycle.lifecycleScope
+import androidx.lifecycle.repeatOnLifecycle
 import androidx.navigation.fragment.navArgs
 import com.esaudev.ecommerceyt.R
 import com.esaudev.ecommerceyt.databinding.FragmentSearchResultBinding
 import com.esaudev.ecommerceyt.domain.model.Product
 import com.esaudev.ecommerceyt.utils.UiState
 import dagger.hilt.android.AndroidEntryPoint
+import kotlinx.coroutines.flow.collect
+import kotlinx.coroutines.flow.collectLatest
+import kotlinx.coroutines.launch
 
 @AndroidEntryPoint
 class SearchResultFragment : Fragment() {
@@ -49,7 +55,7 @@ class SearchResultFragment : Fragment() {
     }
 
     private fun setObservers() {
-        viewModel.products.observe(viewLifecycleOwner) { productsResult ->
+        /**viewModel.products.observe(viewLifecycleOwner) { productsResult ->
             when(productsResult) {
                 is UiState.Success -> {
                     handleLoading(isLoading = false)
@@ -63,6 +69,27 @@ class SearchResultFragment : Fragment() {
                     handleLoading(isLoading = true)
                 }
                 else -> Unit
+            }
+        }**/
+
+        viewLifecycleOwner.lifecycleScope.launch {
+            viewLifecycleOwner.repeatOnLifecycle(Lifecycle.State.STARTED) {
+                viewModel.productsFlow.collect() { productsResult ->
+                    when(productsResult) {
+                        is UiState.Success -> {
+                            handleLoading(isLoading = false)
+                            handleSuccessSearch(products = productsResult.data)
+                        }
+                        is UiState.Error -> {
+                            handleLoading(isLoading = false)
+                            showEmptyScreen(shouldShow = true, message = getString(R.string.search_result__error_disclaimer))
+                        }
+                        is UiState.Loading -> {
+                            handleLoading(isLoading = true)
+                        }
+                        else -> Unit
+                    }
+                }
             }
         }
     }

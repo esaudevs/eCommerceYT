@@ -8,6 +8,8 @@ import com.esaudev.ecommerceyt.utils.Resource
 import com.esaudev.ecommerceyt.utils.UiState
 import com.esaudev.ecommerceyt.utils.mapToUiState
 import dagger.hilt.android.lifecycle.HiltViewModel
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.flow.*
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
@@ -22,6 +24,9 @@ class SearchResultViewModel @Inject constructor(
     val products: LiveData<UiState<List<Product>>>
         get() = _products
 
+    private val _productsFlow = MutableStateFlow<UiState<List<Product>>?>(null)
+    val productsFlow = _productsFlow.asStateFlow()
+
     private val query: String
 
     init {
@@ -31,28 +36,23 @@ class SearchResultViewModel @Inject constructor(
 
     private fun getProductByNameQuery(queryName: String) {
         viewModelScope.launch {
-            _products.postValue(UiState.Loading)
+            _productsFlow.value = UiState.Loading
 
-            val productsList = getProductsByNameQueryUseCase(query = queryName)
-            _products.postValue(productsList.mapToUiState())
+            getProductsByNameQueryUseCase(query = queryName).onEach {
+                _productsFlow.value = it.mapToUiState()
+            }.launchIn(viewModelScope)
         }
     }
 
     fun saveFavorite(id: String) {
         viewModelScope.launch {
             favoritesRepository.saveFavorite(id)
-
-            val productsList = getProductsByNameQueryUseCase(query = query)
-            _products.postValue(productsList.mapToUiState())
         }
     }
 
     fun deleteFavorite(id: String) {
         viewModelScope.launch {
             favoritesRepository.deleteFavorite(id)
-
-            val productsList = getProductsByNameQueryUseCase(query = query)
-            _products.postValue(productsList.mapToUiState())
         }
     }
 
