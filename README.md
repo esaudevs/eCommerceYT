@@ -22,3 +22,7 @@ architecture with use cases. Below is a diagram showing how our project is struc
 
 Some of the libraries and technologies used in this project are listed below: Room, Firebase, Flow, LiveData, ViewModel, Dagger Hilt, 
 Material, Jetpack Navigation, among others.
+
+### Recursos
+
+Here is the [link](https://drive.google.com/file/d/1iLUx12f_psqYMMEahEkDkb4g_YAGN5lO/view?usp=share_link) with the images used for this project. 
